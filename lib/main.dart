@@ -23,10 +23,9 @@ class demo extends StatelessWidget {
       appBar: AppBar(
           title: Center(
               child: Text(
-                "Getx Demo",
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ))),
+        "Getx Demo",
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      ))),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Card(
@@ -39,24 +38,53 @@ class demo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                TextField(
-                  controller: m.t1,
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: TextField(keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 02)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(color: Colors.lime)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        )),
+                    controller: m.t1,
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                TextField(
-                  controller: m.t2,
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: TextField(keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 02)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(color: Colors.lime)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        )),
+                    controller: m.t2,
+                  ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(style: ElevatedButton.styleFrom(
-                    primary: Colors.lime[500],
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                    textStyle: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold)),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.lime[500],
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        textStyle: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                     onPressed: () {
                       m.total(m.t1.text, m.t2.text);
                     },
@@ -72,15 +100,31 @@ class demo extends StatelessWidget {
                 ),
 
                 //3. obx ... keyword define to use of get method
-                Obx(() => Text("SUM = ${m.sum}")),
+                Obx(() => Text("SUM = ${m.sum}",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black,
+                    ))),
                 SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.lime[500],
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        textStyle: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                     onPressed: () {
                       Get.to(Secondpage());
                     },
-                    child: Text("Go To Secongpage")),
+                    child: Text(
+                      "Go To Secongpage",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    )),
               ],
             ),
           ),
